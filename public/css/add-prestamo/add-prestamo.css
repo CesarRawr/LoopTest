@@ -1,0 +1,13 @@
+.listInput {
+  background-color: #fafafa;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  padding: 1px .5rem;
+  font-size: 16px;
+  min-height: 4.2vh;
+}
+
+.listInput:focus,
+.listInput:active {
+  outline-color: #afafaf;
+}

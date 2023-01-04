@@ -54,8 +54,48 @@
   <link rel="stylesheet" type="text/css" href="public/css/lista-prestamos/header.css">
 
   <style type="text/css">
-    .loans-container table tr td ul li {
+    .container-main {
+      background-color: #e2edfa;
+    }
+
+    /* lighten 90% */
+    .table-background {
+      background-color: #e2edfa;
+    }
+
+    /* lighten 80% */
+    tr:nth-child(odd) {
+      background-color: #c5dbf6;
+    }
+
+    .loans-container table td, th {
       color: #616161;
+    }
+
+    /* lighten 75% */
+    .loans-container table tr:hover {
+      background-color: #b7d2f4;
+    }
+
+    /* lighten 70% */
+    .loans-container table tbody tr th {
+      background-color: #70a5e9;
+    }
+
+    /* lighten 70% */
+    .scrollbar::-webkit-scrollbar-track {
+      background: #a9c9f1;
+    }
+
+    /* lighten 50% */
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: #70a5e9;
+      border-radius: 15px;
+    }
+
+    /* lighten 40% */
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #5393e4;
     }
   </style>
 </head>
@@ -90,7 +130,7 @@
           <?php 
             if (sizeof($prestamos) == 0) {
               ?>
-                <span class="t-medium" style="color: #28AD56; font-size: 20px;">No hay préstamos activos para mostrar</span>
+                <span class="t-medium" style="color: #3781e0; font-size: 20px;">No hay préstamos activos para mostrar</span>
               <?php                
             }
           ?>
@@ -126,7 +166,7 @@
                           <?php 
                           foreach($prestamo['dispositivos'] as $dispositivo) {
                             echo "
-                            <li>{$dispositivo['nombre']} ({$dispositivo['prestado']})</li>
+                            <li style='color: #616161;'>{$dispositivo['nombre']} ({$dispositivo['prestado']})</li>
                             ";
                           }
                           ?>
@@ -141,6 +181,8 @@
                       </td>
                       <td>
                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                          <button style="background: #fafafa;color: #616161;border: 1px solid #e0e0e0;" type="button" class="btn-atras mrgn-right" onclick="location.href='/prestamos/mod_prestamo.php?id=<?= $prestamo['id'] ?>'">Editar</button>
+                          
                           <input class="btn-salir" type="submit" value="Devolver" name="<?= $prestamo['id'] ?>">
                         </form>
                       </td>

@@ -131,6 +131,21 @@
     .container-main {
       background-color: #c5dbf6;
     }
+
+    .loans-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-flow: row;
+    }
+
+    .btn-atras:hover {
+      transition: all .3s ease-out 0s;
+    }
+
+    .btn-atras:hover {
+      filter: brightness(.97);
+    }
   </style>
 </head>
 <body> 
@@ -160,6 +175,9 @@
       <main>
         <!-- Loans Table -->
         <div class="loans-container scrollbar f-center">
+          <div>
+            <img width="250" src="images/azul.png" style="margin-bottom: 15vh;">
+          </div>
           <div class="add-card">
             <form autocomplete="off" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
 
@@ -167,6 +185,7 @@
                 <label class="label">ID</label>
                 <div class="control">
                   <input class="input" type="text" id="id" name="id" placeholder="ID">
+                  <button style="width: 100%;background: #fafafa;color: #616161;border: 1px solid #e0e0e0; margin-top:5px" type="button" class="btn-atras">Generar ID</button>
                 </div>
               </div>
 
@@ -199,7 +218,7 @@
               </div>
 
               <div class="field">
-                <label class="label">Detalles</label>
+                <label class="label">Observaciones</label>
                 <div class="control">
                   <input class="input" type="text" id="detalles" name="observaciones" placeholder="Detalles">
                 </div>
@@ -210,6 +229,9 @@
               </div>
 
             </form>
+          </div>
+          <div>
+            <img width="250" src="images/azul.png" style="margin-bottom: 15vh;">
           </div>
         </div>
       </main>
@@ -299,5 +321,6 @@
       });
     });
   </script>
+  <script type="text/javascript" src="public/js/idGenerator.js"></script>
 </body>
 </html>

@@ -6,13 +6,7 @@
     header('location: index.php');
   }
 
-  $isAdmin = $_SESSION['is_admin'];
-
-  $user = (object) [
-    'name' => 'Jane Doe',
-    'email' => 'janedoe@gmail.com',
-    'logged' => true
-  ];
+  $idPrestamo = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +32,8 @@
   <link rel="stylesheet" type="text/css" href="public/css/lista-prestamos/header.css">
 
   <!-- React compilado -->
-  <script defer="defer" src="public/js/add-prestamo/bundle/static/js/main.ed1fe1b9.js"></script>
-  <link href="public/js/add-prestamo/bundle/static/css/main.371f825f.css" rel="stylesheet">
+  <script defer="defer" src="public/js/mod-loan/static/js/main.ed1fe1b9.js"></script>
+  <link href="public/js/mod-loan/static/css/main.371f825f.css" rel="stylesheet">
 
   <style type="text/css">
     .f {
@@ -63,7 +57,7 @@
     <header>
       <div class="title-wrapper f-start">
           <span>
-              <button type="button" class="btn-atras mrgn-left" onclick="location.href='home.php'">Atrás</button>
+              <button type="button" class="btn-atras mrgn-left" onclick="history.back()">Atrás</button>
           </span>
       </div>
 
@@ -82,7 +76,7 @@
 
     <!-- Main Section -->
     <main class="main-container">
-      <div id="root" data-usuario="<?= $idUsuario ?>"></div>
+      <div id="root" data-usuario="<?= $idUsuario ?>" data-prestamo="<?= $idPrestamo ?>"></div>
     </main>
   </div>
 </body>

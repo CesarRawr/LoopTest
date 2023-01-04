@@ -126,6 +126,14 @@
   
   <style>
     .container-main {
+      background-color: #c5dbf6;
+    }
+
+    .loans-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-flow: row;
     }
   </style>
 </head>
@@ -156,6 +164,9 @@
     <main>
       <!-- Loans Table -->
       <div class="loans-container scrollbar f-center">
+        <div>
+          <img width="250" src="images/azul.png" style="margin-bottom: 15vh;">
+        </div>
         <div class="add-card" style="width: 20vw;">
           <form autocomplete="off" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
 
@@ -187,12 +198,12 @@
             <div class="field">
               <label class="label">Cantidad</label>
               <div class="control">
-                <input class="input" type="number" name="cantidad_dispositivo" placeholder="Cantidad" value="<?= $dispositivo['cantidad'] ?>">
+                <input class="input" type="number" name="cantidad_dispositivo" placeholder="Cantidad" value="<?= $dispositivo['cantidad'] ?>" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
               </div>
             </div>
 
             <div class="field">
-              <label class="label">Comentarios</label>
+              <label class="label">Observaciones</label>
               <div class="control">
                 <input class="input" type="text" name="comentarios_dispositivo" placeholder="Comentarios" value="<?= $dispositivo['observaciones'] ?>">
               </div>
@@ -211,6 +222,9 @@
             <input type="hidden" name="actual_cantidad" value="<?= $dispositivo['cantidad'] ?>">
             <input type="hidden" name="actual_comentarios" value="<?= $dispositivo['observaciones'] ?>">
           </form>
+        </div>
+        <div>
+          <img width="250" src="images/azul.png" style="margin-bottom: 15vh;">
         </div>
       </div>
     </main>

@@ -18,20 +18,24 @@
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try{
+      $actualID = $_SESSION['id'];
       $id = $_POST["id_usuario"];
-      
-      $_GRABAR_SQL = "DELETE FROM usuario WHERE id={$id}";
-      $data = $db->query( $_GRABAR_SQL);  
-      $hi = $data -> fetchAll();
 
-      if(!$hi){
-        $_SESSION['message'] = "Usuario eliminado con éxito";
-        $_SESSION['success'] = true;
-      } else{
-        $_SESSION['message'] = "Error al eliminar el usuario";
+      if ($actualID === intval($id)) {
+        $_SESSION['message'] = "No puedes eliminar el usuario con el que estás loggeado";
+      } else {
+        $_GRABAR_SQL = "DELETE FROM usuario WHERE id={$id}";
+        $data = $db->query( $_GRABAR_SQL);  
+        $hi = $data -> fetchAll();
+
+        if(!$hi){
+          $_SESSION['message'] = "Usuario eliminado con éxito";
+          $_SESSION['success'] = true;
+        } else{
+          $_SESSION['message'] = "Error al eliminar el usuario";
+        }
       }
     } catch(Exception $e){
-
       if (str_contains($e -> getMessage(), 'Integrity constraint violation')) {
         $_SESSION['message'] = "No se puede eliminar un usuario con préstamos hechos";
       } else {

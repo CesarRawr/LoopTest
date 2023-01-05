@@ -88,8 +88,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" type="text/css" href="public/css/mod-dispositivos/mod-dispositivos.css">
     <link rel="stylesheet" type="text/css" href="public/css/lista-prestamos/header.css">
 
-  </head>
+  
+    <style>
+      .loans-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-flow: row;
+      }
 
+      .btn-atras:hover {
+        transition: all .2s ease-out 0s;
+      }
+
+      .btn-atras:hover {
+        filter: brightness(.97);
+      }
+    </style>
+  </head>
   <body>
 
     <div class="container-main">
@@ -119,6 +135,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Loans Table -->
         <div class="loans-container scrollbar f-center">
+          <div>
+            <img width="250" src="images/verde.png" style="margin-bottom: 15vh;">
+          </div>
           <div class="add-card">
             <form autocomplete="off" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
 
@@ -167,6 +186,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
 
             </form>
+          </div>
+          <div>
+            <img width="250" src="images/verde.png" style="margin-bottom: 15vh;">
           </div>
         </div>
       </main>

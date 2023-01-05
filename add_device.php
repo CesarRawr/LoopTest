@@ -53,7 +53,7 @@
           if ($isRepeated) {
             $_SESSION['message'] = "El nombre del dispositivo no puede ser igual a alguno de los tipos de dispositivo"; 
           } else {
-            if (trim($id) === "" || trim($nombre) === "" || trim($cantidad) === "") {
+            if (empty($id) || empty($onlyNombre) || empty($cantidad)) {
               $_SESSION['message'] = "No deje campos vacios"; 
             } else {
               $confirm = check($db, $id, $nombre);
@@ -140,7 +140,7 @@
     }
 
     .btn-atras:hover {
-      transition: all .3s ease-out 0s;
+      transition: all .2s ease-out 0s;
     }
 
     .btn-atras:hover {
@@ -185,7 +185,7 @@
                 <label class="label">ID</label>
                 <div class="control">
                   <input class="input" type="text" id="id" name="id" placeholder="ID">
-                  <button style="width: 100%;background: #fafafa;color: #616161;border: 1px solid #e0e0e0; margin-top:5px" type="button" class="btn-atras">Generar ID</button>
+                  <button style="width: 100%;background: #fafafa;color: #616161;border: 1px solid #e0e0e0; margin-top:5px" type="button" class="btn-atras generator">Generar ID</button>
                 </div>
               </div>
 
